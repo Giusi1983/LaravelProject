@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\InvoiceController;
+use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Client;
 
@@ -51,6 +53,9 @@ Route::get('/clients/create', function() {
     return view('clients.create', ['client' => $client]);
 })->middleware('auth')->name('clients.create');
 
+//Route per creare un nuovo cliente
+Route::post('/clients', [ClientController::class, 'store'])->name('clients.store');
+
 // Route per eliminare un cliente
 Route::delete('/clients/{id}', function ($id) {
     $client = Client::find($id);
@@ -63,10 +68,18 @@ Route::delete('/clients/{id}', function ($id) {
     }
 })->middleware('auth')->name('clients.delete');
 
-// Route per il dashboard (accessibile solo se autenticato e verificato)
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+//Per visualizzare l'elenco delle fatture
+Route::get('/invoices', [InvoiceController::class, 'index'])->name('invoices.index');
+
+//Per la pagina dei contatti
+Route::get('/contacts', [ContactController::class, 'index'])->name('contacts.index');
+Route::post('/contacts',  [ContactController::class, 'store'])->name('contacts.store');
+
+
+// // Route per il dashboard (accessibile solo se autenticato e verificato)
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
 // Routes per il profilo utente
 Route::middleware('auth')->group(function () {

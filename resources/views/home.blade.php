@@ -75,7 +75,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Fatture</h5>
                         <p class="card-text">Visualizza e gestisci le fatture dei clienti.</p>
-                        <a href="#" class="btn btn-primary">Vai alle fatture</a>
+                        <a href="{{ route('invoices.index') }}" class="btn btn-primary">Vai alle fatture</a>
                     </div>
                 </div>
             </div>
@@ -84,9 +84,9 @@
                     <div class="card-body">
                         <h5 class="card-title">Supporto</h5>
                         <p class="card-text">Hai bisogno di aiuto? Contatta il nostro supporto.</p>
-                        <a href="#" class="btn btn-primary">Contatta supporto</a>
+                        <a href="{{ route('contacts.index') }}" class="btn btn-primary">Contatta supporto</a>
                     </div>
-                </div>
+                </div> 
             </div>
         </div>
     </div>
