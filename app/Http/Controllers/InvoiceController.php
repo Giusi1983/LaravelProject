@@ -8,6 +8,16 @@ use Illuminate\Http\Request;
 
 class InvoiceController extends Controller
 {
+    // Metodo per visualizzare tutte le fatture
+    public function index()
+    {
+        // Recupera tutte le fatture dal database
+        $invoices = Invoice::all();
+
+        // Restituisci la vista con l'elenco delle fatture
+        return view('invoices.index', compact('invoices'));
+    }
+
     // Metodo per creare una nuova fattura
     public function store(Request $request)
     {
@@ -30,7 +40,7 @@ class InvoiceController extends Controller
             ]);
 
             // Messaggio di successo dopo la creazione della fattura
-            return redirect()->route('invoices.index', ['client_id' => $request->client_id])
+            return redirect()->route('invoices.index')  // Reindirizza alla lista delle fatture
                 ->with('success', 'Fattura creata con successo!');
         } catch (\Exception $e) {
             // Se si verifica un errore, ritorna un messaggio di errore

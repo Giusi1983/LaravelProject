@@ -75,7 +75,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Fatture</h5>
                         <p class="card-text">Visualizza e gestisci le fatture dei clienti.</p>
-                        <a href="#" class="btn btn-primary">Vai alle fatture</a>
+                        <a href="{{ route('invoices.index') }}" class="btn btn-primary">Vai alle fatture</a>
                     </div>
                 </div>
             </div>
