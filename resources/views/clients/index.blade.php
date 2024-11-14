@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -74,30 +73,36 @@
                 <h2>Tutti i Clienti</h2>
             </div>
             <div class="card-body">
+                <!-- Mostra il messaggio di successo -->
+                @if(session('success'))
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                @endif
+
                 <!-- Form per aggiungere un nuovo cliente -->
                 <h4>Aggiungi Nuovo Cliente</h4>
                 <form method="POST" action="{{ route('clients.store') }}">
-    @csrf
-    <div class="row">
-        <div class="col-md-2">
-            <input type="text" class="form-control" name="first_name" placeholder="Nome" required>
-        </div>
-        <div class="col-md-2">
-            <input type="text" class="form-control" name="last_name" placeholder="Cognome" required>
-        </div>
-        <div class="col-md-2">
-            <input type="email" class="form-control" name="email" placeholder="Email" required>
-        </div>
-        <div class="col-md-2">
-            <input type="text" class="form-control" name="address" placeholder="Indirizzo">
-        </div>
-        <div class="col-md-2">
-            <input type="text" class="form-control" name="phone" placeholder="Telefono" required>
-        </div>
-    </div>
-    <button type="submit" class="btn btn-custom mt-2">Aggiungi Cliente</button>
-</form>
-
+                    @csrf
+                    <div class="row">
+                        <div class="col-md-2">
+                            <input type="text" class="form-control" name="first_name" placeholder="Nome" required>
+                        </div>
+                        <div class="col-md-2">
+                            <input type="text" class="form-control" name="last_name" placeholder="Cognome" required>
+                        </div>
+                        <div class="col-md-2">
+                            <input type="email" class="form-control" name="email" placeholder="Email" required>
+                        </div>
+                        <div class="col-md-2">
+                            <input type="text" class="form-control" name="address" placeholder="Indirizzo">
+                        </div>
+                        <div class="col-md-2">
+                            <input type="text" class="form-control" name="phone" placeholder="Telefono" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-custom mt-2">Aggiungi Cliente</button>
+                </form>
 
                 @if($clients->isEmpty())
                     <p class="text-center">Non ci sono clienti disponibili.</p>
@@ -137,13 +142,12 @@
     <!-- Script di Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Script AJAX per l'eliminazione e l'aggiunta dei clienti -->
+    <!-- Script per aggiornare la tabella dopo l'invio del form -->
     <script>
         $(document).ready(function() {
-            // Funzione per gestire l'eliminazione del cliente
+            // Gestione della conferma di eliminazione
             $('.delete-client-btn').on('click', function() {
                 const clientId = $(this).data('id');
-
                 if (confirm("Sei sicuro di voler eliminare questo cliente?")) {
                     $.ajax({
                         url: '/clients/' + clientId,
@@ -165,7 +169,6 @@
                     });
                 }
             });
-
         });
     </script>
 </body>

@@ -68,8 +68,16 @@ Route::delete('/clients/{id}', function ($id) {
     }
 })->middleware('auth')->name('clients.delete');
 
+//per visualizzare la pagina delle fatture
+Route::resource('invoices', InvoiceController::class);
+
 //Per visualizzare l'elenco delle fatture
-Route::get('/invoices', [InvoiceController::class, 'index'])->name('invoices.index');
+Route::get('/client/{id}/invoices', [InvoiceController::class, 'show'])->name('client.invoices');
+
+//Per creare una nuova fattura 
+
+Route::post('/invoices', [InvoiceController::class, 'store'])->name('invoices.store');
+
 
 //Per la pagina dei contatti
 Route::get('/contacts', [ContactController::class, 'index'])->name('contacts.index');
