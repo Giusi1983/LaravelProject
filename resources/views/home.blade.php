@@ -44,7 +44,6 @@
                         <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
                     </li>
                 </ul>
-                <!-- Form di logout invisibile -->
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     @csrf
                 </form>
@@ -52,20 +51,18 @@
         </div>
     </nav>
 
-    <!-- Contenuto principale -->
     <div class="container">
         <div class="text-center mb-5">
             <h1 class="display-4">Benvenuto nel Gestionale CRM</h1>
-            <p class="lead">Gestisci clienti e fatture in un unico posto.</p>
+            <p class="lead">Gestisci clienti e fatture in modo semplice e veloce.</p>
         </div>
 
-        <!-- Dashboard Cards -->
         <div class="row">
             <div class="col-md-4">
                 <div class="card text-center">
                     <div class="card-body">
                         <h5 class="card-title">Clienti</h5>
-                        <p class="card-text">Visualizza, aggiungi o modifica i tuoi clienti.</p>
+                        <p class="card-text">Visualizza, aggiungi o  cancella dalla tabella i tuoi clienti.</p>
                         <a href="{{ route('clients.index') }}" class="btn btn-primary">Vai ai clienti</a>
                     </div>
                 </div>
@@ -74,7 +71,7 @@
                 <div class="card text-center">
                     <div class="card-body">
                         <h5 class="card-title">Fatture</h5>
-                        <p class="card-text">Visualizza e gestisci le fatture dei clienti.</p>
+                        <p class="card-text">Visualizza il resoconto delle ultime fatture dei clienti.</p>
                         <a href="{{ route('invoices.index') }}" class="btn btn-primary">Vai alle fatture</a>
                     </div>
                 </div>
@@ -82,8 +79,8 @@
             <div class="col-md-4">
                 <div class="card text-center">
                     <div class="card-body">
-                        <h5 class="card-title">Supporto</h5>
-                        <p class="card-text">Hai bisogno di aiuto? Contatta il nostro supporto.</p>
+                        <h5 class="card-title">Assistenza</h5>
+                        <p class="card-text">Hai bisogno di aiuto? Contattaci h/24.</p>
                         <a href="{{ route('contacts.index') }}" class="btn btn-primary">Contatta supporto</a>
                     </div>
                 </div> 

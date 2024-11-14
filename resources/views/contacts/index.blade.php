@@ -55,8 +55,8 @@
     <!-- Contenuto principale -->
     <div class="container">
         <div class="text-center mb-5">
-            <h1 class="display-4">Supporto Clienti</h1>
-            <p class="lead">Hai domande o bisogno di assistenza? Siamo qui per aiutarti.</p>
+            <h1 class="display-4">Assistenza Clienti</h1>
+            <p class="lead">Cerchi un supporto per l'uso del gestionale? Contattaci inviandoci un messaggio.</p>
         </div>
 
         <!-- Card Form di Contatto -->

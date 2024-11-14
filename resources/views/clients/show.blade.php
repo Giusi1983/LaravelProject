@@ -1,4 +1,4 @@
-<!-- resources/views/clients/show.blade.php -->
+<!-- resources/views/clients/show.blade.php  struttura tabella fatture visualizzate quando si clicca sul pulsante fatture-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
