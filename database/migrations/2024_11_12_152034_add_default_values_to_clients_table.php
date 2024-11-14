@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('clients', function (Blueprint $table) {
-            //
+            $table->index('last_name'); // aggiunge l index su last_name
         });
     }
 
@@ -22,7 +22,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('clients', function (Blueprint $table) {
-            //
+            $table->dropIndex(['last_name']);  // con questo codice l'indice viene rimosso se si effettua un rollback
         });
     }
 };
